@@ -26,7 +26,7 @@ bot.on('text', async (ctx) => {
 
       if(choice){
         for (i = 0; i < choice.length; i++) {
-          respond += choice[i] + "."+choice_description[i]+"\n";
+          respond += choice[i] + ". "+choice_description[i]+"\n";
         }
       }
     }
@@ -57,6 +57,8 @@ bot.on('text', async (ctx) => {
 async function getSurvey(ctx) {
   try {
     let url = base_url+'username='+ctx.from.id+'&respond='+ctx.text+''
+    console.log('---------------URL----------------');
+    console.log(url);
     const response = await axios.get(url);
     if(response.data){
       return response.data
